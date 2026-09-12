@@ -14,44 +14,44 @@
       "products": [
         {
           "id": "p1",
-          "name": "Whirlpool WLD 20, 8 cubiertos",
+          "name": "Whirlpool WLD 20",
           "price": "399.999",
-          "desc": "",
+          "desc": "8 cubiertos, color gris",
           "image": "images/img-mtxwxsmaqcb7.jpg"
         },
         {
           "id": "p4",
-          "name": "Ariston, 14 cubiertos",
+          "name": "Ariston",
           "price": "549.999",
-          "desc": "",
+          "desc": "14 cubiertos",
           "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV403m5OL5ZeCC4T3QCWD2vF2vhe7U3h4GmZl503RRkZyHFK_cMQ4yw9Crtm0d9OD7ZtC8IUvloSBYxkazl0bWtLoRwVYNySiJ03cLJh5fIjxS_1RZg_Bc6IKciGM8V4F_9Dpig0m2kNcgKyw1GeRXXsf4qRzWYIlxO4JRVi64KIOLansrltCi8jO44C654Eod6Sl_-Atuol4Ej7tft3X07A62cIyJlVG2NW6l9bwo=w1280"
         },
         {
           "id": "p5",
-          "name": "Ariston acero inoxidable, 14 cubiertos",
+          "name": "Ariston acero inoxidable",
           "price": "599.999",
-          "desc": "",
-          "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV1BqKRXnuPUwwrAlL5aKwACOo1a-m5ljyYLGgQYigiuyP17kXdoQIgSxHHqRWPdLJrZoYo58CTZXjCbn6XEj_xBWOHvcPqcAVDabEWj3lVBLQ3jQP9uVi4eEjBFqa7aA16fyK6DJ20p3gxWqaVXFaeMcOaJBc2cHM0YFh29AECyOgRvS450xViw3Lym8ZaIi5x_lbwdnA2mRPdH86kxCoV7yoixYiDkRWabFqA=w1280"
+          "desc": "14 cubiertos",
+          "image": "images/img-mtxx0z9o8do6.jpg"
         },
         {
           "id": "p6",
-          "name": "Ariston LL64, acero inoxidable, 12 cubiertos",
+          "name": "Ariston LL64 ",
           "price": "499.999",
-          "desc": "",
+          "desc": "Acero inoxidable, 12 cubiertos",
           "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQWRi4ZJ89FjPfhieVPGWS5oY4Dp5iyp7_3JarTkQTNPMnSJSCTFLHYaUjO1eQwIpq86FpSnyNtIXf9O35G7K4awU_8Yvb5uAUvLI88T0-0qhjcO5FSD9ofOrEfXLkMlg9K2M5k7oh9MyYpck70hJJSqfx3yqnNF44KMQP-cPqz6il1hznTNmTcBY38ECe7j6k7ebo-HFqXuJt-rCXs2tn8BbJxg__FTcfEg0Oem=w1280"
         },
         {
           "id": "p7",
-          "name": "Whirlpool acero inoxidable, touch",
+          "name": "Whirlpool",
           "price": "599.999",
-          "desc": "",
+          "desc": "Acero inoxidable, touch",
           "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQVNzEbJWG5mx9PicWGT0dLDTwQkxlbY0ggAts2Gr3RT9OXxybecyoXvNCjwb9nAa3o4EQoBRIwpum5XNCakWWtolmoWHp-F15gJkzrLsC0Qia6o970_UMCajS9fIdfISNCp0JffjRItWiFQ0Zk9WBU2eDDPSSfR_9KlgrS7qWW4R7PdvOiqY-eyujc_GaxuFM0X1IQm7u2KcMadlHbzuClF1Kg8KR3TczrTrlFgoEI=w1280"
         },
         {
           "id": "p8",
-          "name": "Whirlpool WLR12, acero inoxidable, 12 cubiertos",
+          "name": "Whirlpool WLR12",
           "price": "499.999",
-          "desc": "",
+          "desc": "Acero inoxidable, 12 cubiertos",
           "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV0k7Msl8kHqETVL-sSLPVjS4CEiY88Kz_Dvu8PzqMnGWOA0UXc7VC4pERgdpbyzYEuCFNLwfBfuO0c00v95E571Defu88zTr8t4BxQYGuXt8jJL_A-osfWoFHHT7HOpjLF7XMM4VOShjywIntRZae8qATt03vdDFc9hXFTPFLnMmsiC0ed7dylSnUdn3rSj2MAsolUKGZk8jbUqvvU3QA2_zCtvkxSIp5EcyuM=w1280"
         }
       ]
