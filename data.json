@@ -1,0 +1,38 @@
+{
+  "business": {
+    "name": "LavaDelta",
+    "tagline": "Lavavajillas y lavarropas usados premium, probados y con garantía",
+    "location": "Zona norte de Buenos Aires · Partido de Tigre",
+    "whatsapp": "5491145310463",
+    "whatsappDisplay": "11 4531-0463"
+  },
+  "about": "LavaDelta es un emprendimiento familiar de la zona norte de Buenos Aires, Partido de Tigre, especializado en la venta de lavavajillas y lavarropas usados premium. Todos los equipos se entregan probados a conformidad del comprador y con un mes de garantía.",
+  "categories": [
+    {
+      "id": "cat-lavavajillas",
+      "title": "Lavavajillas",
+      "products": [
+        { "id": "p1", "name": "Whirlpool WLD 20, 8 cubiertos", "price": "399.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQWAwalbTjLchcinAdMEL6fyJAzr-UTApEKrCXa67xEj30PUgbWMy3RoKH-XydOI82JXvZ81uxiUY83G-228r0V9sU0t8pbuCi8UK143O9y_s6CcJ6QwybrBFzMnNyqn_T14ZPsive4mlSwBV2bV4jzCIN-QZJptb1gaTBwaKeGSRXjnqdYIhup0qJ5xlavpE_cBOXKmAh9vztPa4dbwSJUfnxpOd1HRVlJBcvKze-g=w1280" },
+        { "id": "p2", "name": "Whirlpool WLD 20, 8 cubiertos", "price": "419.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQU4ZJG7KIM1ssZo5aM9QxPTFs4k0rVKMLhzvOHcTUQJQUvlM-MZ5KwRLNBa2Ys4BZrLyyx4iaKjIg5HAMZIrCnzkvqm_h2M4XcIe3_CAAiRRa1gbhpMKm0WpdnfEjyOVtc7JTDjzlnK4DjX1o2rS3CT__Nie7NDUmhbbU3OuF9gqdWD1D9V6mtdE9Wk6rY=w1280" },
+        { "id": "p3", "name": "Whirlpool WLD 20, 8 cubiertos", "price": "469.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV1No2lV25AVE8VA9xOjcfKccuAPdsDvnNlyxokgwlz78csaKyBJOZqiZ4DNwheIWIqVN6yOl4EZOcRua5xFbaG-gP5OaL6hTOc5dD_pCU0CE3lYMssLorB1CUg7bX6zvDFFtZJ3wWKBO4U5QS2O5osz3fZMSxR2EncYYQPFbrvv9AKechU9mc6C11TTeD9yhYO1rqzslLZAjYG2E1SkYkK0JoDujKWsoFq3rVy=w1280" },
+        { "id": "p4", "name": "Ariston, 14 cubiertos", "price": "549.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV403m5OL5ZeCC4T3QCWD2vF2vhe7U3h4GmZl503RRkZyHFK_cMQ4yw9Crtm0d9OD7ZtC8IUvloSBYxkazl0bWtLoRwVYNySiJ03cLJh5fIjxS_1RZg_Bc6IKciGM8V4F_9Dpig0m2kNcgKyw1GeRXXsf4qRzWYIlxO4JRVi64KIOLansrltCi8jO44C654Eod6Sl_-Atuol4Ej7tft3X07A62cIyJlVG2NW6l9bwo=w1280" },
+        { "id": "p5", "name": "Ariston acero inoxidable, 14 cubiertos", "price": "599.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV1BqKRXnuPUwwrAlL5aKwACOo1a-m5ljyYLGgQYigiuyP17kXdoQIgSxHHqRWPdLJrZoYo58CTZXjCbn6XEj_xBWOHvcPqcAVDabEWj3lVBLQ3jQP9uVi4eEjBFqa7aA16fyK6DJ20p3gxWqaVXFaeMcOaJBc2cHM0YFh29AECyOgRvS450xViw3Lym8ZaIi5x_lbwdnA2mRPdH86kxCoV7yoixYiDkRWabFqA=w1280" },
+        { "id": "p6", "name": "Ariston LL64, acero inoxidable, 12 cubiertos", "price": "499.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQWRi4ZJ89FjPfhieVPGWS5oY4Dp5iyp7_3JarTkQTNPMnSJSCTFLHYaUjO1eQwIpq86FpSnyNtIXf9O35G7K4awU_8Yvb5uAUvLI88T0-0qhjcO5FSD9ofOrEfXLkMlg9K2M5k7oh9MyYpck70hJJSqfx3yqnNF44KMQP-cPqz6il1hznTNmTcBY38ECe7j6k7ebo-HFqXuJt-rCXs2tn8BbJxg__FTcfEg0Oem=w1280" },
+        { "id": "p7", "name": "Whirlpool acero inoxidable, touch", "price": "599.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQVNzEbJWG5mx9PicWGT0dLDTwQkxlbY0ggAts2Gr3RT9OXxybecyoXvNCjwb9nAa3o4EQoBRIwpum5XNCakWWtolmoWHp-F15gJkzrLsC0Qia6o970_UMCajS9fIdfISNCp0JffjRItWiFQ0Zk9WBU2eDDPSSfR_9KlgrS7qWW4R7PdvOiqY-eyujc_GaxuFM0X1IQm7u2KcMadlHbzuClF1Kg8KR3TczrTrlFgoEI=w1280" },
+        { "id": "p8", "name": "Whirlpool WLR12, acero inoxidable, 12 cubiertos", "price": "499.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV0k7Msl8kHqETVL-sSLPVjS4CEiY88Kz_Dvu8PzqMnGWOA0UXc7VC4pERgdpbyzYEuCFNLwfBfuO0c00v95E571Defu88zTr8t4BxQYGuXt8jJL_A-osfWoFHHT7HOpjLF7XMM4VOShjywIntRZae8qATt03vdDFc9hXFTPFLnMmsiC0ed7dylSnUdn3rSj2MAsolUKGZk8jbUqvvU3QA2_zCtvkxSIp5EcyuM=w1280" }
+      ]
+    },
+    {
+      "id": "cat-lavarropas",
+      "title": "Lavarropas",
+      "products": [
+        { "id": "w1", "name": "Whirlpool Supreme Care Sexto Sentido WLCF70B, 7 kg", "price": "459.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQV1kxowtZQc0yhRbi0urU_M64bUzMUZXJ5Je1pPZFKX8dOyXLlAyo9orFr-PWugpOW2B14n24DkR_BTBPCVdQwDaYosRDQXeCDebRd0oHPtJ5QyYuHm3Tt_NP4G1Je0DemFMGC85W9FmS8su87Fp1jL1cdU9mkR-oIbmTyDGlC9c7zwgr-36wZSzXlKPu6P6vFrYyRoLoKGMO0kCmwEagSZ-pyNJMVzLM2si6eTUFY=w1280" },
+        { "id": "w2", "name": "Whirlpool Supreme Care Sexto Sentido WLCF90B, 9 kg", "price": "559.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQWqjrN7rOI6Ie47QmXZIse7ZXJcCwgQfkBXYV4HqmKGK-tEw2yy3GYLYkhyJWBHQHiuh0mWTzDz1PuKqNp9GFlzcD2fGX34tAVnpP2zUwgc_waFAkTfpCYKtUZpwkaHHHm2acF95mGm58mV9LzQ32Fk0uWr6LinyYOcD56YKcN4BCzUgcJc9Wl5vbeD5NnsF3PgJJC4E2LyQjXZJqjbGBhG3e8NijkwI8xY8DAf=w1280" },
+        { "id": "w3", "name": "Whirlpool WWL16, carga frontal, 10 kg", "price": "449.999", "desc": "", "image": "https://lh3.googleusercontent.com/sitesv/AG8ngQWQ2USHMpTudM46_ajNbl9-6B9Cm97ziiy1WH2Z9atk19CKNfiuYd9wLi7jcUz20J2rfDypNqau65hJ_7Rtz-M7WquDxrRdWbe6md6IRqvM6supad7NY4EMDHtclcasIh_r3qoeYQMNZKcO96C3dptxcmaGsx10_o4ilpTLpqREGAmBMFATq6Ngyuu4Iy8oNwA1wsgnOBIHgU7iqpj5XBW0BEl1KHcaL4H68zPI018=w1280" }
+      ]
+    }
+  ],
+  "repuestos": "En LavaDelta disponemos de una gran cantidad de repuestos de lavavajillas usados, de distintas marcas y modelos. Consultanos por tu repuesto indicando la marca y el modelo de tu lavavajilla.",
+  "planCanje": "Ofrecemos Plan Canje: entregá tu lavavajilla usado sin funcionar y llevate uno funcionando en óptimas condiciones. Se reciben, exclusivamente, equipos en buen estado estético y que puedan repararse.",
+  "envios": "Los lavavajillas y repuestos pueden retirarse en persona. El envío de lavavajillas tiene un costo adicional de $18.000 en concepto de embalaje y traslado a la transportista (por ejemplo, Via Cargo). Los repuestos se despachan por Via Cargo u OCA, con el pago del envío a cargar en destino al retirar el producto."
+}

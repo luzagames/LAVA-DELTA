@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LavaDelta — Administración</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#20242A; --ink-soft:#565D66; --bg:#ECEDE9; --surface:#FFFFFF;
+    --line:#D7D9D3; --steel:#33616F; --steel-deep:#234750; --copper:#BE6A32;
+    --whatsapp:#25D366; --whatsapp-deep:#1DA851; --danger:#B3432D; --radius-s:3px; --radius-m:6px;
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;font-size:15.5px;line-height:1.5;}
+  h1,h2,h3{font-family:'Barlow Condensed',sans-serif;font-weight:700;margin:0;}
+  .wrap{max-width:920px;margin:0 auto;padding:32px 20px 120px;}
+  p{margin:0;}
+  label{display:block;font-size:12.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--ink-soft);margin:14px 0 4px;}
+  input[type=text],input[type=password],textarea{
+    width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:var(--radius-s);
+    font-size:15px;font-family:inherit;background:#fff;
+  }
+  textarea{min-height:70px;resize:vertical;}
+  input:focus,textarea:focus{outline:2px solid var(--steel);border-color:var(--steel);}
+  button{font-family:inherit;cursor:pointer;border:none;border-radius:var(--radius-s);font-weight:600;font-size:14.5px;}
+  .top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:10px;}
+  .brand{font-size:26px;}
+  .brand span{color:var(--steel);}
+  .btn{padding:10px 18px;}
+  .btn-primary{background:var(--steel);color:#fff;}
+  .btn-primary:hover{background:var(--steel-deep);}
+  .btn-save{background:var(--whatsapp);color:#fff;padding:13px 22px;font-size:15.5px;}
+  .btn-save:hover{background:var(--whatsapp-deep);}
+  .btn-outline{background:transparent;border:1px solid var(--line);color:var(--ink-soft);}
+  .btn-outline:hover{border-color:var(--steel);color:var(--steel);}
+  .btn-danger{background:transparent;border:1px solid var(--danger);color:var(--danger);}
+  .btn-danger:hover{background:var(--danger);color:#fff;}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius-m);padding:22px;margin-bottom:22px;}
+  .hint{color:var(--ink-soft);font-size:14px;margin-top:4px;}
+  .config-card{max-width:520px;margin:60px auto;}
+  .config-card ol{padding-left:20px;color:var(--ink-soft);font-size:14px;}
+  .config-card li{margin-bottom:6px;}
+  .error-box{background:#FBEAE6;border:1px solid var(--danger);color:#7A2E1E;padding:10px 12px;border-radius:var(--radius-s);font-size:14px;margin-top:12px;}
+  .section-title{font-size:22px;margin:34px 0 14px;}
+  .product-card{border:1px solid var(--line);border-radius:var(--radius-m);padding:16px;margin-bottom:14px;background:#fff;}
+  .product-top{display:flex;gap:16px;}
+  .thumb{width:110px;height:88px;flex:none;border-radius:4px;overflow:hidden;background:#DFE1DC;display:flex;align-items:center;justify-content:center;position:relative;}
+  .thumb img{width:100%;height:100%;object-fit:cover;}
+  .thumb .uploading{position:absolute;inset:0;background:rgba(0,0,0,.5);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;text-align:center;padding:4px;}
+  .file-btn{display:inline-block;font-size:12.5px;margin-top:6px;color:var(--steel);text-decoration:underline;cursor:pointer;}
+  .file-btn input{display:none;}
+  .product-fields{flex:1;}
+  .row2{display:grid;grid-template-columns:2fr 1fr;gap:12px;}
+  .cat-title-row{display:flex;align-items:center;gap:12px;margin-bottom:14px;}
+  .cat-title-row input{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:700;max-width:320px;}
+  .link-btn{background:none;border:none;color:var(--danger);font-size:13px;text-decoration:underline;padding:0;}
+  .add-product-btn{border:1.5px dashed #B7BCB4;background:transparent;color:var(--ink-soft);padding:12px;width:100%;border-radius:var(--radius-s);}
+  .add-product-btn:hover{border-color:var(--steel);color:var(--steel);}
+  .add-cat-btn{border:1.5px dashed #B7BCB4;background:transparent;color:var(--ink-soft);padding:12px 18px;border-radius:var(--radius-s);margin-top:6px;}
+  .bottom-bar{
+    position:fixed;bottom:0;left:0;right:0;background:var(--ink);color:#fff;
+    padding:14px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;z-index:50;
+  }
+  .bottom-bar .status{font-size:13.5px;color:#C9CDD3;}
+  .bottom-bar .actions{display:flex;gap:10px;}
+  .toast{position:fixed;bottom:80px;right:22px;background:var(--ink);color:#fff;padding:12px 18px;border-radius:var(--radius-s);font-size:14px;z-index:80;box-shadow:0 4px 14px rgba(0,0,0,.25);max-width:320px;}
+  .spinner{display:inline-block;width:13px;height:13px;border:2px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:spin .7s linear infinite;vertical-align:-2px;margin-right:6px;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+  .loading-screen{text-align:center;padding:100px 20px;color:var(--ink-soft);}
+</style>
+</head>
+<body>
+<div id="app"></div>
+
+<script>
+const CONFIG_KEY = 'lavadelta-admin-config';
+const API = 'https://api.github.com';
+
+let config = null;
+let DATA = null;
+let dataSha = null;
+let saving = false;
+
+/* ---------- utils ---------- */
+function esc(str){ return String(str==null?'':str).replace(/[&<>"']/g, s=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[s])); }
+function uid(p){ return p + '-' + Date.now().toString(36) + Math.random().toString(36).slice(2,6); }
+function getPath(obj, path){ return path.split('.').reduce((a,k)=> (a==null?a:a[k]), obj); }
+function setPath(obj, path, value){ const k = path.split('.'); let c = obj; for(let i=0;i<k.length-1;i++) c = c[k[i]]; c[k[k.length-1]] = value; }
+
+function utf8ToBase64(str){
+  const bytes = new TextEncoder().encode(str);
+  let binary = ''; bytes.forEach(b => binary += String.fromCharCode(b));
+  return btoa(binary);
+}
+function base64ToUtf8(b64){
+  const binary = atob(b64.replace(/\n/g,''));
+  const bytes = new Uint8Array(binary.length);
+  for(let i=0;i<binary.length;i++) bytes[i] = binary.charCodeAt(i);
+  return new TextDecoder().decode(bytes);
+}
+
+function showToast(msg, isError){
+  const old = document.querySelector('.toast'); if(old) old.remove();
+  const t = document.createElement('div');
+  t.className = 'toast';
+  if(isError) t.style.background = '#7A2E1E';
+  t.textContent = msg;
+  document.body.appendChild(t);
+  setTimeout(()=>t.remove(), 4200);
+}
+
+/* ---------- GitHub API ---------- */
+function authHeaders(){
+  return { 'Authorization': 'Bearer ' + config.token, 'Accept': 'application/vnd.github+json' };
+}
+async function ghGetFile(path){
+  const res = await fetch(`${API}/repos/${config.owner}/${config.repo}/contents/${encodeURIComponent(path)}?ref=${encodeURIComponent(config.branch)}&t=${Date.now()}`, { headers: authHeaders() });
+  if(res.status === 404) return null;
+  if(!res.ok) throw new Error('Error al leer ' + path + ' (' + res.status + ')');
+  return res.json();
+}
+async function ghPutFile(path, base64Content, message, sha){
+  const body = { message, content: base64Content, branch: config.branch };
+  if(sha) body.sha = sha;
+  const res = await fetch(`${API}/repos/${config.owner}/${config.repo}/contents/${encodeURIComponent(path)}`, {
+    method: 'PUT', headers: { ...authHeaders(), 'Content-Type': 'application/json' }, body: JSON.stringify(body)
+  });
+  if(!res.ok){
+    const err = await res.json().catch(()=>({}));
+    throw new Error(err.message || ('Error al guardar ' + path + ' (' + res.status + ')'));
+  }
+  return res.json();
+}
+
+/* ---------- Image handling ---------- */
+function resizeImageFile(file, maxWidth=1280, quality=0.82){
+  return new Promise((resolve, reject)=>{
+    const reader = new FileReader();
+    reader.onerror = () => reject(new Error('No se pudo leer el archivo'));
+    reader.onload = e => {
+      const img = new Image();
+      img.onerror = () => reject(new Error('No se pudo procesar la imagen'));
+      img.onload = () => {
+        let w = img.width, h = img.height;
+        if(w > maxWidth){ h = Math.round(h * (maxWidth / w)); w = maxWidth; }
+        const canvas = document.createElement('canvas');
+        canvas.width = w; canvas.height = h;
+        canvas.getContext('2d').drawImage(img, 0, 0, w, h);
+        resolve(canvas.toDataURL('image/jpeg', quality).split(',')[1]);
+      };
+      img.src = e.target.result;
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+async function handleImageUpload(file, path, onDone){
+  try{
+    const base64 = await resizeImageFile(file);
+    const filename = 'images/' + uid('img') + '.jpg';
+    await ghPutFile(filename, base64, 'Subir imagen de producto');
+    setPath(DATA, path, filename);
+    onDone(null, filename);
+  }catch(err){
+    onDone(err);
+  }
+}
+
+/* ---------- Config screen ---------- */
+function loadConfig(){
+  try{ return JSON.parse(localStorage.getItem(CONFIG_KEY)); }catch(e){ return null; }
+}
+function saveConfig(c){ localStorage.setItem(CONFIG_KEY, JSON.stringify(c)); }
+function clearConfig(){ localStorage.removeItem(CONFIG_KEY); }
+
+function renderConfigScreen(errorMsg){
+  const app = document.getElementById('app');
+  app.innerHTML = `
+    <div class="wrap">
+      <div class="card config-card">
+        <h2 style="margin-bottom:6px;">Conectar con GitHub</h2>
+        <p class="hint">Esto se configura una sola vez en esta computadora.</p>
+        <label>Token de acceso personal</label>
+        <input type="password" id="cfg-token" placeholder="ghp_..." />
+        <label>Usuario u organización de GitHub</label>
+        <input type="text" id="cfg-owner" placeholder="ej: juanperez" />
+        <label>Nombre del repositorio</label>
+        <input type="text" id="cfg-repo" placeholder="ej: lavadelta" />
+        <label>Rama</label>
+        <input type="text" id="cfg-branch" placeholder="main" value="main" />
+        ${errorMsg ? `<div class="error-box">${esc(errorMsg)}</div>` : ''}
+        <button class="btn btn-primary" id="cfg-connect" style="margin-top:20px;width:100%;">Conectar</button>
+        <p class="hint" style="margin-top:18px;">¿Cómo conseguir el token? Pedile a quien armó la página que te pase estos datos, o mirá el archivo README.md del repositorio.</p>
+      </div>
+    </div>`;
+
+  document.getElementById('cfg-connect').onclick = async () => {
+    const token = document.getElementById('cfg-token').value.trim();
+    const owner = document.getElementById('cfg-owner').value.trim();
+    const repo = document.getElementById('cfg-repo').value.trim();
+    const branch = document.getElementById('cfg-branch').value.trim() || 'main';
+    if(!token || !owner || !repo){ renderConfigScreen('Completá todos los campos.'); return; }
+    config = { token, owner, repo, branch };
+    app.innerHTML = '<div class="loading-screen">Conectando…</div>';
+    try{
+      const file = await ghGetFile('data.json');
+      if(file === null){
+        // no existe todavía: lo creamos con el contenido por defecto
+        await createInitialDataFile();
+      }else{
+        DATA = JSON.parse(base64ToUtf8(file.content));
+        dataSha = file.sha;
+      }
+      saveConfig(config);
+      renderEditor();
+    }catch(err){
+      renderConfigScreen(err.message || 'No se pudo conectar. Revisá los datos.');
+    }
+  };
+}
+
+async function createInitialDataFile(){
+  const initial = {
+    business:{ name:"Mi Negocio", tagline:"Escribí acá la frase principal de tu negocio", location:"Tu ciudad", whatsapp:"5491100000000", whatsappDisplay:"11 0000-0000" },
+    about:"Contá acá de qué se trata tu negocio.",
+    categories:[{ id: uid('cat'), title:"Productos", products:[] }],
+    repuestos:"", planCanje:"", envios:""
+  };
+  const res = await ghPutFile('data.json', utf8ToBase64(JSON.stringify(initial, null, 2)), 'Crear archivo de contenido inicial');
+  DATA = initial;
+  dataSha = res.content.sha;
+}
+
+/* ---------- Editor screen ---------- */
+function renderEditor(){
+  const app = document.getElementById('app');
+  const b = DATA.business;
+
+  app.innerHTML = `
+    <div class="wrap">
+      <div class="top-bar">
+        <div class="brand"><span>${esc(config.repo)}</span> · administración</div>
+        <button class="btn btn-outline" id="btn-logout">Cerrar sesión</button>
+      </div>
+
+      <div class="card">
+        <h3>Datos del negocio</h3>
+        <label>Nombre del negocio</label>
+        <input type="text" data-path="business.name" value="${esc(b.name)}"/>
+        <label>Frase principal (arriba de todo en la página)</label>
+        <textarea data-path="business.tagline">${esc(b.tagline)}</textarea>
+        <label>Zona / ubicación</label>
+        <input type="text" data-path="business.location" value="${esc(b.location)}"/>
+        <div class="row2">
+          <div>
+            <label>WhatsApp (solo números, con código de país. Ej: 5491145310463)</label>
+            <input type="text" data-path="business.whatsapp" value="${esc(b.whatsapp)}"/>
+          </div>
+          <div>
+            <label>WhatsApp (como se muestra. Ej: 11 4531-0463)</label>
+            <input type="text" data-path="business.whatsappDisplay" value="${esc(b.whatsappDisplay)}"/>
+          </div>
+        </div>
+        <label>Descripción del negocio</label>
+        <textarea data-path="about">${esc(DATA.about)}</textarea>
+      </div>
+
+      <h2 class="section-title">Productos</h2>
+      <div id="categories-holder"></div>
+      <button class="btn add-cat-btn" id="btn-add-cat">+ Agregar categoría</button>
+
+      <h2 class="section-title">Otros textos</h2>
+      <div class="card">
+        <label>Repuestos</label>
+        <textarea data-path="repuestos">${esc(DATA.repuestos)}</textarea>
+        <label>Plan Canje</label>
+        <textarea data-path="planCanje">${esc(DATA.planCanje)}</textarea>
+        <label>Envíos</label>
+        <textarea data-path="envios">${esc(DATA.envios)}</textarea>
+      </div>
+    </div>
+
+    <div class="bottom-bar">
+      <span class="status" id="save-status">Los cambios se publican al tocar "Guardar y publicar".</span>
+      <div class="actions">
+        <a class="btn btn-outline" href="https://${esc(config.owner)}.github.io/${esc(config.repo)}/" target="_blank" style="text-decoration:none;display:inline-flex;align-items:center;">Ver página</a>
+        <button class="btn btn-save" id="btn-publish">Guardar y publicar</button>
+      </div>
+    </div>
+  `;
+
+  renderCategories();
+  attachTopLevelEvents();
+}
+
+function renderCategories(){
+  const holder = document.getElementById('categories-holder');
+  holder.innerHTML = DATA.categories.map((cat, ci) => `
+    <div class="card">
+      <div class="cat-title-row">
+        <input type="text" data-path="categories.${ci}.title" value="${esc(cat.title)}"/>
+        <button class="link-btn" data-action="remove-cat" data-cat="${ci}">Eliminar categoría</button>
+      </div>
+      ${cat.products.map((p, pi) => productRow(cat, ci, p, pi)).join('')}
+      <button class="btn add-product-btn" data-action="add-product" data-cat="${ci}">+ Agregar producto</button>
+    </div>
+  `).join('');
+  attachDynamicEvents();
+}
+
+function productRow(cat, ci, p, pi){
+  const base = `categories.${ci}.products.${pi}`;
+  return `
+    <div class="product-card" data-product-row="${ci}-${pi}">
+      <div class="product-top">
+        <div>
+          <div class="thumb" id="thumb-${ci}-${pi}">
+            ${p.image ? `<img src="${esc(p.image)}" onerror="this.style.opacity=0.15"/>` : ''}
+          </div>
+          <label class="file-btn">Subir foto
+            <input type="file" accept="image/*" data-action="upload-image" data-cat="${ci}" data-prod="${pi}"/>
+          </label>
+        </div>
+        <div class="product-fields">
+          <label>Nombre</label>
+          <input type="text" data-path="${base}.name" value="${esc(p.name)}"/>
+          <div class="row2">
+            <div>
+              <label>Detalle (opcional)</label>
+              <input type="text" data-path="${base}.desc" value="${esc(p.desc)}"/>
+            </div>
+            <div>
+              <label>Precio ($)</label>
+              <input type="text" data-path="${base}.price" value="${esc(p.price)}"/>
+            </div>
+          </div>
+          <button class="link-btn" style="margin-top:10px;" data-action="remove-product" data-cat="${ci}" data-prod="${pi}">Eliminar producto</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function attachTopLevelEvents(){
+  document.getElementById('btn-logout').onclick = () => {
+    if(confirm('¿Cerrar sesión en esta computadora?')){ clearConfig(); location.reload(); }
+  };
+  document.getElementById('btn-add-cat').onclick = () => {
+    DATA.categories.push({ id: uid('cat'), title: 'Nueva categoría', products: [] });
+    renderCategories();
+  };
+  document.getElementById('btn-publish').onclick = publishChanges;
+  bindInputs(document.querySelector('.wrap'));
+}
+
+function attachDynamicEvents(){
+  const holder = document.getElementById('categories-holder');
+  bindInputs(holder);
+
+  holder.querySelectorAll('[data-action="remove-cat"]').forEach(btn=>{
+    btn.onclick = () => {
+      if(confirm('¿Eliminar esta categoría y todos sus productos?')){
+        DATA.categories.splice(+btn.dataset.cat, 1);
+        renderCategories();
+      }
+    };
+  });
+  holder.querySelectorAll('[data-action="add-product"]').forEach(btn=>{
+    btn.onclick = () => {
+      DATA.categories[+btn.dataset.cat].products.push({ id: uid('p'), name:'Nuevo producto', price:'0', desc:'', image:'' });
+      renderCategories();
+    };
+  });
+  holder.querySelectorAll('[data-action="remove-product"]').forEach(btn=>{
+    btn.onclick = () => {
+      if(confirm('¿Eliminar este producto?')){
+        DATA.categories[+btn.dataset.cat].products.splice(+btn.dataset.prod, 1);
+        renderCategories();
+      }
+    };
+  });
+  holder.querySelectorAll('[data-action="upload-image"]').forEach(input=>{
+    input.onchange = (e) => {
+      const file = e.target.files[0];
+      if(!file) return;
+      const ci = input.dataset.cat, pi = input.dataset.prod;
+      const thumb = document.getElementById(`thumb-${ci}-${pi}`);
+      thumb.innerHTML += '<div class="uploading"><span class="spinner"></span>Subiendo…</div>';
+      handleImageUpload(file, `categories.${ci}.products.${pi}.image`, (err, filename) => {
+        if(err){
+          showToast('No se pudo subir la imagen: ' + err.message, true);
+          thumb.innerHTML = thumb.querySelector('img') ? thumb.querySelector('img').outerHTML : '';
+        }else{
+          thumb.innerHTML = `<img src="${esc(filename)}"/>`;
+          showToast('Foto subida. No olvides tocar "Guardar y publicar".');
+        }
+      });
+    };
+  });
+}
+
+function bindInputs(scope){
+  scope.querySelectorAll('[data-path]').forEach(el=>{
+    if(el.dataset.bound) return;
+    el.dataset.bound = '1';
+    el.addEventListener('input', e => setPath(DATA, e.target.dataset.path, e.target.value));
+  });
+}
+
+async function publishChanges(){
+  if(saving) return;
+  saving = true;
+  const status = document.getElementById('save-status');
+  const btn = document.getElementById('btn-publish');
+  btn.disabled = true;
+  status.innerHTML = '<span class="spinner"></span>Publicando…';
+  try{
+    // re-fetch sha in case it changed elsewhere, to avoid conflicts
+    const current = await ghGetFile('data.json');
+    const shaToUse = current ? current.sha : dataSha;
+    const res = await ghPutFile('data.json', utf8ToBase64(JSON.stringify(DATA, null, 2)), 'Actualizar contenido del sitio', shaToUse);
+    dataSha = res.content.sha;
+    status.textContent = 'Publicado. Puede tardar 1 minuto en verse en la página.';
+    showToast('Cambios publicados ✓');
+  }catch(err){
+    status.textContent = 'No se pudo publicar.';
+    showToast(err.message || 'Error al publicar', true);
+  }finally{
+    saving = false;
+    btn.disabled = false;
+  }
+}
+
+/* ---------- Boot ---------- */
+(async function init(){
+  config = loadConfig();
+  if(!config){ renderConfigScreen(); return; }
+  document.getElementById('app').innerHTML = '<div class="loading-screen">Cargando contenido…</div>';
+  try{
+    const file = await ghGetFile('data.json');
+    if(file === null){
+      await createInitialDataFile();
+    }else{
+      DATA = JSON.parse(base64ToUtf8(file.content));
+      dataSha = file.sha;
+    }
+    renderEditor();
+  }catch(err){
+    renderConfigScreen(err.message || 'No se pudo conectar. Revisá los datos.');
+  }
+})();
+</script>
+</body>
+</html>
